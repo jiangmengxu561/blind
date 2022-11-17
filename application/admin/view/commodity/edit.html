@@ -1,0 +1,76 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('C_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-C_id" data-rule="required" data-source="commodity/commodity" class="form-control selectpage" name="row[c_id]" type="text"value="{$row.c_id|htmlentities}" data-field="name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Images')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-images" class="form-control" size="50" name="row[images]" type="text" value="{$row.images|htmlentities}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-images" class="btn btn-danger faupload" data-input-id="c-images" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="true" data-preview-id="p-images"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-images" class="btn btn-primary fachoose" data-input-id="c-images" data-mimetype="image/*" data-multiple="true"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-images"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-images"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Title')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-title" class="form-control" name="row[title]" type="text" value="{$row.title|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Brand')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-brand" class="form-control" name="row[brand]" type="text" value="{$row.brand|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('规格')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <dl class="fieldlist" data-name="guige" data-template="testtpl">
+                <dd>
+                    <ins>规格标题</ins>
+                    <ins>价格</ins>
+                    <ins>库存</ins>
+                </dd>
+                <dd>
+                    <a href="javascript:;" class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> 追加</a>
+                </dd>
+                <textarea name="guige" class="form-control hide" cols="30" rows="5">{$row.guize|htmlentities}</textarea>
+            </dl>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-content" class="form-control editor" rows="5" name="row[content]" cols="50">{$row.content|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+
+<script type="text/html" id="testtpl">
+    <dd class="form-inline">
+        <input type="text" name="row[<%=name%>][<%=index%>][specifi]" class="form-control" value="<%=row['specifi']%>" size="3">
+        <input type="text" name="row[<%=name%>][<%=index%>][price]" class="form-control" value="<%=row['price']%>" size="5">
+        <input type="text" name="row[<%=name%>][<%=index%>][stock]" class="form-control" value="<%=row['stock']%>" size="5">
+        <span class="btn btn-sm btn-danger btn-remove">
+            <i class="fa fa-times"></i>
+        </span> <span class="btn btn-sm btn-primary btn-dragsort">
+        <i class="fa fa-arrows"></i></span>
+    </dd>
+</script>

@@ -1,0 +1,140 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-name" class="control-label col-xs-12 col-sm-2">收货人姓名:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" type="text" data-rule="required" class="form-control" name="row[accept_name]" value=""  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">收货人手机:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="number" data-rule="required" class="form-control" name="row[accept_mobile]" value=""  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">收货地址:</label>
+        <div class="col-xs-12 col-sm-8">
+
+                <div class='control-relative'><input id="c-native_place" data-rule="required" class="form-control" data-toggle="city-picker" placeholder="请选择省/市/区" data-level="area" name="row[accept_native_place]" type="text" value=""></div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-detail" class="control-label col-xs-12 col-sm-2">详细地址:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-detail" type="text" data-rule="required" class="form-control" name="row[accept_address]" value=""  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('发货商品')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="goods_ids"   class="form-control" size="50" name="row[goods_ids]" type="text" value="">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" href="{:url('delivery.order/selectgoods')}" id="select-goods" class="btn btn-primary" data-input-id="c-images" data-multiple="true" data-preview-id="p-images"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-images"></span>
+            </div>
+
+            <!--ul需要添加 data-template和data-name属性，并一一对应且唯一 -->
+            <ul class="row list-inline plupload-preview" id="pre-goods" data-template="desctpl" data-name="row[desc]"></ul>
+
+            <!--请注意 ul和textarea间不能存在其它任何元素，实际开发中textarea应该添加个hidden进行隐藏-->
+            <!--            <textarea  name="row[desc]" class="form-control" style="margin-top:5px;">[{"info":"开发者示例插件","size":"1M"},{"info":"又拍云储存整合","size":"2M"},{"info":"阿里OSS云储存","size":"1M"}]</textarea>-->
+
+            <!--这里自定义图片预览的模板 开始-->
+            <!--<script type="text/html" id="desctpl">
+                <li class="col-xs-3"><a href="" data-url="" target="_blank" class="thumbnail"><img src="" class="img-responsive"></a><input type="text" name="row[goods][][num]" class="form-control" placeholder="请输入商品数量" value=""/><input type="hidden" name="row[goods][][id]" class="form-control" value=""/><a href="javascript:;" class="btn btn-danger btn-xs btn-trash"><i class="fa fa-trash"></i></a></li>
+            </script>
+            <script type="text/html" id="desctpl">
+                <li class="col-xs-3">
+                    <a href="<%=fullurl%>" data-url="<%=url%>" target="_blank" class="thumbnail">
+                        <img src="<%=fullurl%>" class="img-responsive">
+                    </a>
+                    <input type="text" name="row[desc][<%=index%>][info]" class="form-control" placeholder="请输入商品数量" value="<%=value?value['info']:''%>"/>
+&lt;!&ndash;                    <input type="text" name="row[desc][<%=index%>][size]" class="form-control" placeholder="请输入插件大小" value="<%=value?value['size']:''%>"/>&ndash;&gt;
+                    <a href="javascript:;" class="btn btn-danger btn-xs btn-trash"><i class="fa fa-trash"></i></a>
+                </li>
+            </script>-->
+            <!--这里自定义图片预览的模板 结束-->
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label for="c-pay_type" class="control-label col-xs-12 col-sm-2">支付方式:</label>
+        <div class="col-xs-12 col-sm-4">
+            <select id="c-pay_type" data-rule="required" class="form-control selectpicker" name="row[pay_type]">
+                <option value="1" selected>微信支付</option>
+                <option value="2" >支付宝</option>
+                <option value="3" >现金</option>
+                <option value="4" >银行卡</option>
+            </select>
+        </div>
+    </div>
+    <div class="alert alert-success-light">
+        <b>以下项目不填将以默认发件人信息发货，设置默认发件人信息请到【快递单打印】进行设置</b>
+    </div>
+    <div class="form-group">
+        <label for="c-customer_name" class="control-label col-xs-12 col-sm-2">发件人公司:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-customer_name" type="text"  class="form-control" name="row[send_company]" value="{$row.company}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-customer_pwd" class="control-label col-xs-12 col-sm-2">发件人名称:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-customer_pwd" type="text"  class="form-control" name="row[send_name]" value="{$row.name}"  />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-month_code" class="control-label col-xs-12 col-sm-2">发件人电话:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-month_code" type="text"  class="form-control" name="row[send_tel]" value="{$row.tel}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-send_site" class="control-label col-xs-12 col-sm-2">发件人手机:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-send_site" type="text"  class="form-control" name="row[send_mobile]" value="{$row.mobile}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-send_site" class="control-label col-xs-12 col-sm-2">发件人邮编:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-send_site" type="text"  class="form-control" name="row[post_code]" value="{$row.post_code}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-send_site" class="control-label col-xs-12 col-sm-2">发件人地区:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class='control-relative'><input id="c-native_place1" class="form-control" data-toggle="city-picker" placeholder="请选择省/市/区" data-level="area" name="row[send_native_place]" type="text" value="{$row.send_native_place}"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-send_site" class="control-label col-xs-12 col-sm-2">发件人详细地址:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-send_site" type="text"  class="form-control" name="row[send_address]" value="{$row.address}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('订单备注')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-content" class="form-control editor" rows="5" name="row[remark]" cols="50"></textarea>
+        </div>
+    </div>
+	
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

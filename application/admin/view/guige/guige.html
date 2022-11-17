@@ -1,0 +1,40 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('规格')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <dl class="fieldlist" data-name="guige" data-template="testtpl">
+                <dd>
+                    <ins>规格标题</ins>
+                    <ins>价格</ins>
+                    <ins>库存</ins>
+                </dd>
+                <dd>
+                    <a href="javascript:;" class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> 追加</a>
+                </dd>
+                <textarea name="guige" class="form-control hide" cols="30" rows="5"></textarea>
+            </dl>
+        </div>
+    </div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+
+<script type="text/html" id="testtpl">
+    <dd class="form-inline">
+        <input type="text" name="row[<%=name%>][<%=index%>][specifi]" class="form-control" value="<%=row['specifi']%>" size="3">
+        <input type="text" name="row[<%=name%>][<%=index%>][price]" class="form-control" value="<%=row['price']%>" size="5">
+        <input type="text" name="row[<%=name%>][<%=index%>][stock]" class="form-control" value="<%=row['stock']%>" size="5">
+        <span class="btn btn-sm btn-danger btn-remove">
+            <i class="fa fa-times"></i>
+        </span> <span class="btn btn-sm btn-primary btn-dragsort">
+        <i class="fa fa-arrows"></i></span>
+    </dd>
+</script>

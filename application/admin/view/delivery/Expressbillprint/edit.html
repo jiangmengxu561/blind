@@ -1,0 +1,98 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group kuaidi">
+        <label class="control-label col-xs-12 col-sm-2">{:__('快递公司')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-express" data-rule="required"  class="form-control" size="50" name="row[express]" type="text" value="{$row.express_com}" disabled>
+                <input class="form-control" name="row[express_id]" type="hidden" value="{$row.express_id}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button href="{:url('delivery.order/select')}" type="button" id="select-resources" class="btn btn-primary" data-input-id="c-express"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-name" class="control-label col-xs-12 col-sm-2">电子面单客户账号:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" type="text" class="form-control" name="row[customer_name]" value="{$row.customer_name}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">电子面单密码:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text" class="form-control" name="row[customer_pwd]" value="{$row.customer_pwd}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">月结编码:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text" class="form-control" name="row[month_code]" value="{$row.month_code}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">网点编码:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text" class="form-control" name="row[send_site]" value="{$row.send_site}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">网点名称:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text" class="form-control" name="row[send_name]" value="{$row.send_name}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">发件人公司:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text" class="form-control" name="row[company]" value="{$row.billsender.company}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">发件人名称:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text" data-rule="required" class="form-control" name="row[name]" value="{$row.billsender.name}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">发件人电话:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text"  class="form-control" name="row[tel]" value="{$row.billsender.tel}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">发件人手机:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="number"  class="form-control" name="row[mobile]" value="{$row.billsender.mobile}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">发件人邮编:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text"  class="form-control" name="row[post_code]" value="{$row.billsender.post_code}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">发件人地区:</label>
+        <div class="col-xs-12 col-sm-8">
+
+                <div class='control-relative'><input id="c-native_place" data-rule="required" class="form-control" data-toggle="city-picker" placeholder="请选择省/市/区" data-level="area" name="row[native_place]" type="text" value="{$row.native_place}"></div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-detail" class="control-label col-xs-12 col-sm-2">发件人详细地址:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-detail" type="text" data-rule="required" class="form-control" name="row[address]" value="{$row.billsender.address}"  />
+        </div>
+    </div>
+
+    <input type="hidden"  class="form-control" name="row[sender_id]" value="{$row.billsender.id}"  />
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

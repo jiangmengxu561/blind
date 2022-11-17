@@ -1,0 +1,22 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar">
+                        {:build_toolbar('refresh')}
+<!--
+                        <span><button type="button" href="{:url('delivery.express/add')}" id="add_express" class="btn btn-success faupload" data-mimetype="{$Think.get.mimetype|default=''|htmlentities}" data-multiple="true"><i class="fa fa-upload"></i> {:__('新增')}</button></span>
+-->
+                    </div>
+                    <table id="table" class="table table-bordered table-hover" width="100%">
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

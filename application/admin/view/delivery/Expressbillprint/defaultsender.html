@@ -1,0 +1,57 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">发件人公司:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text" class="form-control" name="row[company]" value="{$row.company}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">发件人名称:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text" data-rule="required" class="form-control" name="row[name]" value="{$row.name}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">发件人电话:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text"  class="form-control" name="row[tel]" value="{$row.tel}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">发件人手机:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="number"  class="form-control" name="row[mobile]" value="{$row.mobile}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">发件人邮编:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text"  class="form-control" name="row[post_code]" value="{$row.post_code}"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">发件人地区:</label>
+        <div class="col-xs-12 col-sm-8">
+
+                <div class='control-relative'><input id="c-native_place" data-rule="required" class="form-control" data-toggle="city-picker" placeholder="请选择省/市/区" data-level="area" name="row[native_place]" type="text" value="{$row.native_place}"></div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-detail" class="control-label col-xs-12 col-sm-2">发件人详细地址:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-detail" type="text" data-rule="required" class="form-control" name="row[address]" value="{$row.address}"  />
+        </div>
+    </div>
+    <input  type="hidden"  class="form-control" name="row[id]" value="{$row.id}"  />
+    <input  type="hidden"  class="form-control" name="row[delivery_id]" value="0"  />
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

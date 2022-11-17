@@ -1,0 +1,102 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('U_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-u_id" data-rule="required" data-source="Anchor/user" class="form-control selectpage" name="row[u_id]" type="text" value="" data-field="username">
+        </div>
+    </div>
+
+<!--    <div class="form-group">-->
+<!--        <label class="control-label col-xs-12 col-sm-2">{:__('M_id')}:</label>-->
+<!--        <div class="col-xs-12 col-sm-8">-->
+<!--&lt;!&ndash;            <input id="c-m_id" data-rule="required" data-source="m/index" class="form-control selectpage" name="row[m_id]" type="text" value="">&ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label class="control-label col-xs-12 col-sm-2">{:__('S_id')}:</label>-->
+<!--        <div class="col-xs-12 col-sm-8">-->
+<!--            <input id="c-s_id" data-rule="required" data-source="s/index" class="form-control selectpage" name="row[s_id]" type="text" value="">-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('M_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-m_id" data-rule="required" data-field="b_name" data-source="bulid/index" class="form-control selectpage" name="row[m_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('S_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-s_id" data-rule="required" data-field="s_name" data-source="Anchor/index1" class="form-control selectpage" name="row[s_id]" type="text" value="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Probability')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-probability" class="form-control" name="row[probability]" type="text">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+<!--<script>-->
+<!--    //初始化数据-->
+<!--    window.onload= function ()-->
+<!--    {-->
+<!--        $.post(-->
+<!--            "{:url('Anchor/select_classify')}",-->
+<!--            {-->
+<!--                key:1-->
+<!--            },-->
+<!--            function (data){-->
+<!--                //confirm(data);-->
+<!--                var info=eval(data);-->
+<!--                for(var i=0;i<info.length;i++){-->
+<!--                    // confirm(info[i].type_name);-->
+<!--                    var sel=$('#first');-->
+<!--                    sel.append("<option value='"+info[i].id+"'>"+info[i].name+"</option>");-->
+<!--                }-->
+
+<!--            }-->
+<!--        );-->
+<!--        return;-->
+<!--    };-->
+<!--    //父级分类选定 获得子级分类数据-->
+<!--    function getAchild(val,id) {-->
+<!--        // confirm(id);-->
+<!--        var  sel;-->
+<!--        if(id=='first'){-->
+<!--            $('#second').empty();//清空二级分类框-->
+<!--            sel=$('#second');-->
+<!--        }-->
+<!--        if(id=='second') {-->
+<!--            $('#third').empty();//清空三级分类框-->
+<!--            sel=$('#third');-->
+<!--        }-->
+<!--        $.post(-->
+<!--            "{:url('anchor/select_classify')}",-->
+<!--            {-->
+<!--                type_parent:val,-->
+<!--                key:2-->
+<!--            },-->
+<!--            function (data){-->
+<!--                //confirm(data);-->
+<!--                var info=eval(data);-->
+<!--                sel.append("<option  value=''>&#45;&#45;&#45;&#45;请选择-&#45;&#45;</option>");-->
+<!--                for(var i=0;i<info.length;i++){-->
+<!--                    // confirm(info[i].type_name);-->
+<!--                    //var sel=$('#second');-->
+<!--                    sel.append("<option value='"+info[i].id+"'>"+info[i].name+"</option>");-->
+<!--                }-->
+
+<!--            }-->
+<!--        );-->
+<!--    }-->

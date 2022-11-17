@@ -1,0 +1,80 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('商品分类')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <select  id="c-lessonname" data-rule="required" class="form-control selectpicker" name="row[cat_id]">
+                    <option value="0" selected>请选择商品分类</option>
+                    {foreach name="catList" item="vo"}
+                    <option value="{$vo.id}">{$vo.name}</option>
+                    {/foreach}
+                </select>
+                <div class="input-group-addon no-border no-padding">
+                    <span><button href="{:url('delivery.goods/addcat')}" type="button" id="select-resources" class="btn btn-primary" data-input-id="c-express"><i class="fa fa-list"></i> {:__('新增')}</button></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-name" class="control-label col-xs-12 col-sm-2">商品名称:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" type="text" data-rule="required" class="form-control" name="row[name]" value=""  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">售价:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" type="text" class="form-control" name="row[price]" value=""  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('运费规则')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select  id="c-xinzhi" data-rule="required" class="form-control selectpicker" name="row[freight]">
+                {foreach name="postageRules" item="vo"}
+                <option value="{$vo.id}">{$vo.name}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('商品缩略图')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-cimage" data-rule="required" class="form-control" size="50" name="row[cimage]" type="text" value="">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="plupload-cimage" class="btn btn-danger plupload" data-input-id="c-cimage" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-cimage"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-cimage" class="btn btn-primary fachoose" data-input-id="c-cimage" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-cimage"></span>
+            </div>
+            <ul class="row list-inline plupload-preview" id="p-cimage"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('商品图片')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-cimages" class="form-control" size="50" name="row[cimages]" type="text">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="plupload-cimages" class="btn btn-danger plupload" data-input-id="c-cimages" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="true" data-preview-id="p-cimages"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-cimages" class="btn btn-primary fachoose" data-input-id="c-cimages" data-mimetype="image/*" data-multiple="true"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-cimages"></span>
+            </div>
+            <ul class="row list-inline plupload-preview" id="p-cimages"></ul>
+        </div>
+    </div>
+    
+	
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

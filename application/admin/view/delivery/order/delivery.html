@@ -1,0 +1,65 @@
+<form id="addsend-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('物流选择')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <div class="radio">
+                {foreach name="statusList" item="vo"}
+                <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[express_type]" type="radio" value="{$key}" {in name="key" value="normal"}checked{/in} /> {$vo}</label>
+                {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group kuaidi">
+        <label class="control-label col-xs-12 col-sm-2">{:__('快递公司')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-express" data-rule="" class="form-control" size="50" name="row[express]" type="text" value="" disabled>
+                <input class="form-control" name="row[express]" type="hidden" value="">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button href="{:url('delivery.order/select')}" type="button" id="select-resources" class="btn btn-primary" data-input-id="c-express"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group kuaidi">
+        <label class="control-label col-xs-12 col-sm-2">{:__('快递单号')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" data-rule="required" class="form-control" name="row[express_no]" type="text">
+        </div>
+    </div>
+
+    <div class="form-group kuaidi">
+        <label class="control-label col-xs-12 col-sm-2">{:__('收件人编码（选填）')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input  class="form-control" name="row[accept_post_code]" type="text">
+        </div>
+    </div>
+    <div class="form-group kuaidi">
+        <label class="control-label col-xs-12 col-sm-2">{:__('面单')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button href="{:url('delivery.order/select')}" type="button" id="print_express_bill" class="btn btn-success"><i class="fa fa-print"></i> {:__('打印面单')}</button></span>
+                    <span><a href='http://www.c-lodop.com/download.html' target='_blank' type="button" class="btn btn-primary"><i class="fa fa-arrow-down"></i> {:__('下载插件')}</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('商家留言（选填）')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-content" class="form-control editor" rows="5" name="row[words]" cols="50"></textarea>
+        </div>
+    </div>
+    <input class="form-control" name="row[id]" type="hidden" value="{$row.id}">
+    <input class="form-control" name="row[is_send]" type="hidden" value="1">
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <!--<button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>-->
+        </div>
+    </div>
+</form>
